@@ -1,796 +1,613 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026年5月22日 A股短线复盘 | 退潮→修复 情绪强修复</title>
-    <style>
-        :root {
-            --bg: #f8f9fa;
-            --card-bg: #ffffff;
-            --border: #e8eaed;
-            --text: #1a1a2e;
-            --text-secondary: #5f6368;
-            --accent: #1a73e8;
-            --green: #137333;
-            --red: #c5221f;
-            --green-bg: #e6f4ea;
-            --red-bg: #fce8e6;
-            --gold: #e8a000;
-            --gold-bg: #fef7e0;
-            --tag-bg: #e8f0fe;
-            --tag-text: #1a73e8;
-            --divider: #e8eaed;
-            --heading: #0d1b2a;
-            --score-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --table-stripe: #f8f9fb;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股主线题材全景仪表盘 | 2026.07.28</title>
+<style>
+:root{
+  --bg:#f0f4f8;
+  --card:#ffffff;
+  --border:#e2e8f0;
+  --text:#0f172a;
+  --text-sec:#64748b;
+  --primary:#2563eb;
+  --primary-light:#dbeafe;
+  --green:#10b981;
+  --green-light:#d1fae5;
+  --red:#ef4444;
+  --red-light:#fee2e2;
+  --orange:#f59e0b;
+  --orange-light:#fef3c7;
+  --purple:#8b5cf6;
+  --purple-light:#ede9fe;
+  --cyan:#06b6d4;
+  --cyan-light:#cffafe;
+  --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+  --shadow-lg:0 10px 25px -5px rgba(0,0,0,.08),0 8px 10px -6px rgba(0,0,0,.04);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:linear-gradient(135deg,#eef2ff 0%,#f0f9ff 50%,#ecfeff 100%);
+  color:var(--text);
+  line-height:1.6;
+  min-height:100vh;
+}
+.wrap{max-width:1480px;margin:0 auto;padding:20px 24px 48px}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* Header */
+.header{
+  background:linear-gradient(135deg,#ffffff 0%,#f8fafc 100%);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:24px 28px;
+  margin-bottom:20px;
+  box-shadow:var(--shadow);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:16px;
+}
+.h-left{display:flex;align-items:center;gap:16px}
+.logo{
+  width:52px;height:52px;border-radius:14px;
+  background:linear-gradient(135deg,#3b82f6,#06b6d4);
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;color:#fff;box-shadow:0 4px 12px rgba(59,130,246,.35);
+}
+.title h1{font-size:22px;font-weight:700;color:var(--text);letter-spacing:.3px}
+.title p{font-size:13px;color:var(--text-sec);margin-top:2px}
+.h-right{display:flex;gap:10px;align-items:center}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 14px;border-radius:999px;
+  font-size:12px;font-weight:600;letter-spacing:.3px;
+}
+.b-blue{background:var(--primary-light);color:var(--primary)}
+.b-green{background:var(--green-light);color:var(--green)}
+.b-orange{background:var(--orange-light);color:var(--b3)}
+.dot{width:7px;height:7px;border-radius:50%;background:currentColor;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
-            background: #f0f2f5;
-            color: var(--text);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
+/* Grid */
+.grid{display:grid;gap:16px}
+.g-4{grid-template-columns:repeat(4,1fr)}
+.g-3{grid-template-columns:repeat(3,1fr)}
+.g-2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:1200px){.g-4{grid-template-columns:repeat(2,1fr)}.g-3{grid-template-columns:1fr}}
+@media(max-width:768px){.g-4,.g-3,.g-2{grid-template-columns:1fr}}
 
-        .container {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 24px 16px 48px;
-        }
+/* Card */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:20px 22px;
+  box-shadow:var(--shadow);
+  transition:box-shadow .25s,transform .25s;
+}
+.card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.card h2{
+  font-size:15px;font-weight:700;color:var(--text);
+  margin-bottom:14px;display:flex;align-items:center;gap:8px;
+  padding-bottom:10px;border-bottom:1px solid var(--border);
+}
+.card h2 .ic{font-size:18px}
+.card h2 .tag-s{
+  margin-left:auto;font-size:11px;font-weight:600;
+  padding:3px 10px;border-radius:6px;background:var(--primary-light);color:var(--primary);
+}
 
-        .header {
-            text-align: center;
-            padding: 32px 20px 24px;
-            background: var(--card-bg);
-            border-radius: 16px;
-            margin-bottom: 20px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-        }
-        .header .badge {
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-        .badge-warmup {
-            background: var(--gold-bg);
-            color: var(--gold);
-        }
-        .header h1 {
-            font-size: 28px;
-            font-weight: 700;
-            margin: 12px 0 6px;
-            color: var(--heading);
-            letter-spacing: 0.5px;
-        }
-        .header .subtitle {
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
+/* KPI */
+.kpi{display:flex;flex-direction:column;gap:4px}
+.kpi .v{font-size:28px;font-weight:800;letter-spacing:-.5px}
+.kpi .v.up{color:var(--red)}
+.kpi .v.down{color:var(--green)}
+.kpi .l{font-size:12px;color:var(--text-sec);font-weight:500}
+.kpi .s{font-size:11px;color:var(--text-sec);margin-top:2px}
 
-        .card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 22px 24px;
-            margin-bottom: 16px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-            border: 1px solid var(--border);
-        }
-        .card h2 {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--heading);
-            margin-bottom: 14px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--accent);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .card h2 .icon {
-            font-size: 20px;
-        }
-        .card h3 {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--heading);
-            margin: 14px 0 8px;
-        }
+/* Theme Card */
+.theme{position:relative;overflow:hidden}
+.theme::before{
+  content:"";position:absolute;top:0;left:0;width:4px;height:100%;
+  background:linear-gradient(180deg,var(--primary),var(--cyan));
+}
+.theme.t2::before{background:linear-gradient(180deg,var(--purple),var(--primary))}
+.theme.t3::before{background:linear-gradient(180deg,var(--orange),var(--red))}
+.theme .rank{
+  position:absolute;top:14px;right:16px;
+  width:32px;height:32px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:14px;color:#fff;
+  background:linear-gradient(135deg,#3b82f6,#06b6d4);
+  box-shadow:0 3px 8px rgba(59,130,246,.3);
+}
+.theme h3{font-size:17px;font-weight:700;margin-bottom:6px}
+.theme .stage{
+  display:inline-block;padding:3px 10px;border-radius:6px;
+  font-size:11px;font-weight:600;margin-bottom:10px;
+}
+.s-active{background:var(--green-light);color:var(--green)}
+.s-defense{background:var(--orange-light);color:#d97706}
+.s-correct{background:var(--red-light);color:var(--red)}
 
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-        @media (max-width: 640px) {
-            .grid-3 {
-                grid-template-columns: 1fr;
-            }
-        }
-        .stat-box {
-            background: #f8f9fb;
-            border-radius: 10px;
-            padding: 14px 16px;
-            text-align: center;
-            border: 1px solid var(--border);
-        }
-        .stat-box .label {
-            font-size: 12px;
-            color: var(--text-secondary);
-            letter-spacing: 0.3px;
-        }
-        .stat-box .value {
-            font-size: 22px;
-            font-weight: 700;
-            margin: 4px 0;
-        }
-        .value.up {
-            color: var(--red);
-        }
-        .value.down {
-            color: var(--green);
-        }
-        .stat-box .detail {
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
+.flow{display:flex;gap:10px;margin:10px 0;flex-wrap:wrap}
+.flow .f{
+  flex:1;min-width:120px;
+  padding:8px 12px;border-radius:8px;
+  background:#f8fafc;border:1px solid var(--border);
+}
+.flow .f .n{font-size:11px;color:var(--text-sec)}
+.flow .f .m{font-size:15px;font-weight:700;margin-top:2px}
+.flow .f.in .m{color:var(--red)}
+.flow .f.out .m{color:var(--green)}
 
-        .tag-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 8px 0;
-        }
-        .tag {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 500;
-            background: var(--tag-bg);
-            color: var(--tag-text);
-        }
-        .tag.red {
-            background: var(--red-bg);
-            color: var(--red);
-        }
-        .tag.green {
-            background: var(--green-bg);
-            color: var(--green);
-        }
-        .tag.gold {
-            background: var(--gold-bg);
-            color: var(--gold);
-        }
+.bull-bear{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.bb{
+  padding:10px 12px;border-radius:8px;
+  font-size:12px;line-height:1.7;
+}
+.bb.bull{background:var(--green-light);color:#065f46}
+.bb.bear{background:var(--red-light);color:#991b1b}
+.bb h4{font-size:12px;font-weight:700;margin-bottom:4px}
 
-        .score-display {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin: 10px 0;
-        }
-        .score-circle {
-            width: 68px;
-            height: 68px;
-            border-radius: 50%;
-            background: var(--score-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 28px;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-        .score-desc {
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-        .score-desc strong {
-            color: var(--heading);
-        }
+/* Table */
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{
+  background:#f1f5f9;font-weight:600;padding:9px 10px;
+  text-align:left;color:var(--text-sec);font-size:11px;
+  letter-spacing:.3px;border-bottom:2px solid var(--border);
+}
+td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:hover td{background:#f8fafc}
+.stars{color:var(--orange);letter-spacing:2px;font-weight:700}
+.pos{
+  display:inline-block;padding:2px 8px;border-radius:5px;
+  font-size:11px;font-weight:600;
+}
+.p-l{background:var(--red-light);color:var(--red)}
+.p-m{background:var(--primary-light);color:var(--primary)}
+.p-c{background:var(--purple-light);color:var(--purple)}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-            margin: 10px 0;
-        }
-        table th {
-            background: #f0f2f5;
-            font-weight: 600;
-            padding: 10px 12px;
-            text-align: left;
-            border-bottom: 2px solid var(--border);
-            font-size: 12px;
-            letter-spacing: 0.3px;
-            color: var(--text-secondary);
-        }
-        table td {
-            padding: 9px 12px;
-            border-bottom: 1px solid var(--border);
-            vertical-align: top;
-        }
-        table tbody tr:hover {
-            background: var(--table-stripe);
-        }
-        table .num {
-            font-variant-numeric: tabular-nums;
-            font-weight: 600;
-        }
-        .rank-badge {
-            display: inline-block;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 22px;
-            font-size: 12px;
-            font-weight: 700;
-            color: #fff;
-            margin-right: 4px;
-        }
-        .rank-1 {
-            background: #e8a000;
-        }
-        .rank-2 {
-            background: #8e8e93;
-        }
-        .rank-3 {
-            background: #a0805c;
-        }
+/* Top3 */
+.top3{display:flex;flex-direction:column;gap:14px}
+.top-item{
+  display:grid;grid-template-columns:auto 1fr auto;gap:14px;
+  padding:14px;border-radius:12px;
+  background:linear-gradient(135deg,#f8fafc,#ffffff);
+  border:1px solid var(--border);
+  align-items:start;
+}
+.top-item .no{
+  width:40px;height:40px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:800;color:#fff;flex-shrink:0;
+}
+.no-1{background:linear-gradient(135deg,#f59e0b,#ef4444)}
+.no-2{background:linear-gradient(135deg,#3b82f6,#06b6d4)}
+.no-3{background:linear-gradient(135deg,#8b5cf6,#ec4899)}
+.top-item h4{font-size:15px;font-weight:700;margin-bottom:2px}
+.top-item .code{font-size:11px;color:var(--text-sec);margin-bottom:6px}
+.top-item .meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.m-chip{
+  font-size:11px;padding:2px 8px;border-radius:5px;
+  background:var(--primary-light);color:var(--primary);font-weight:600;
+}
+.top-item p{font-size:12px;color:var(--text-sec);line-height:1.7}
+.top-item .sig{
+  margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);
+  font-size:11px;color:var(--red);font-weight:600;
+}
 
-        .stock-name {
-            font-weight: 600;
-            color: var(--heading);
-        }
-        .stock-code {
-            font-size: 11px;
-            color: var(--text-secondary);
-        }
+/* Footer */
+.foot{
+  margin-top:24px;text-align:center;font-size:11px;color:var(--text-sec);
+  padding:16px;border-top:1px solid var(--border);
+}
 
-        .quote-block {
-            border-left: 3px solid var(--accent);
-            padding: 8px 14px;
-            margin: 10px 0;
-            background: #f8f9fb;
-            border-radius: 0 8px 8px 0;
-            font-size: 13px;
-            color: var(--text-secondary);
-        }
-
-        .risk-box {
-            background: #fef7e0;
-            border: 1px solid #f9d849;
-            border-radius: 10px;
-            padding: 14px 18px;
-            margin: 10px 0;
-        }
-        .risk-box h4 {
-            color: var(--gold);
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-        .risk-box ul {
-            margin-left: 18px;
-            font-size: 13px;
-            color: var(--text-secondary);
-        }
-
-        .footer-note {
-            text-align: center;
-            font-size: 12px;
-            color: var(--text-secondary);
-            margin-top: 20px;
-            padding: 14px;
-        }
-
-        hr {
-            border: none;
-            border-top: 1px solid var(--divider);
-            margin: 16px 0;
-        }
-
-        .flex-between {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-    </style>
+/* Scrollbar */
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:#94a3b8}
+</style>
 </head>
 <body>
-    <div class="container">
+<div class="wrap">
 
-        <!-- 头部 -->
-        <div class="header">
-            <span class="badge badge-warmup">🔄 情绪阶段：退潮确认期 → 修复期</span>
-            <h1>📊 2026年5月22日（周五）A股标准化短线复盘</h1>
-            <p class="subtitle">数据截至收盘 · 财联社/东方财富/Wind/龙虎榜综合整理 · 客观复盘，不构成投资建议</p>
-        </div>
-
-        <!-- ========== 一、外围 ========== -->
-        <div class="card">
-            <h2><span class="icon">🌍</span> 一、外围市场</h2>
-            <h3>📈 美股（5月21日收盘）</h3>
-            <div class="grid-3">
-                <div class="stat-box">
-                    <div class="label">道琼斯工业</div>
-                    <div class="value up">+0.55%</div>
-                    <div class="detail">50,285.66 点</div>
-                </div>
-                <div class="stat-box">
-                    <div class="label">标普500</div>
-                    <div class="value up">+0.17%</div>
-                    <div class="detail">7,445.72 点</div>
-                </div>
-                <div class="stat-box">
-                    <div class="label">纳斯达克</div>
-                    <div class="value up">+0.09%</div>
-                    <div class="detail">26,293.10 点</div>
-                </div>
-            </div>
-            <p style="font-size:13px;color:var(--text-secondary);">三大股指全线收涨，道指创历史新高，英伟达股价跌1.77%（财报后高预期兑现）[reference:0]。中概股涨跌不一，文远知行涨超7%，万国数据跌超9%[reference:1]。欧股同步走强，德国DAX涨1.73%。</p>
-            <div class="quote-block">
-                <strong>💰 关键外围信号：</strong>美油回落至96.35美元/桶（-1.94%），COMEX黄金涨至4546美元/盎司[reference:2]。大型科技股多数上涨：特斯拉涨超3%，苹果涨超1%，英伟达涨超1%[reference:3]。英伟达Rubin机架BOM拆解报告发布，单机柜成本较GB300增长95%，PCB价值量增长233%——直接催化A股PCB/MLCC板块全线爆发[reference:4]。
-            </div>
-        </div>
-
-        <!-- ========== 二、大盘 ========== -->
-        <div class="card">
-            <h2><span class="icon">📈</span> 二、大盘数据</h2>
-            <div class="grid-3">
-                <div class="stat-box">
-                    <div class="label">上证综指</div>
-                    <div class="value up">+0.87%</div>
-                    <div class="detail">4,112.90 点</div>
-                </div>
-                <div class="stat-box">
-                    <div class="label">深证成指</div>
-                    <div class="value up">+2.30%</div>
-                    <div class="detail">15,597.30 点</div>
-                </div>
-                <div class="stat-box">
-                    <div class="label">创业板指 🔥</div>
-                    <div class="value up">+2.84%</div>
-                    <div class="detail">3,938.50 点</div>
-                </div>
-            </div>
-            <div class="grid-3">
-                <div class="stat-box">
-                    <div class="label">科创50</div>
-                    <div class="value up">+1.51%</div>
-                    <div class="detail">1,790.77 点</div>
-                </div>
-                <div class="stat-box">
-                    <div class="label">两市成交额</div>
-                    <div class="value" style="color:var(--heading);">29,033亿</div>
-                    <div class="detail">较前日缩量5,783亿（-16.6%）</div>
-                </div>
-                <div class="stat-box">
-                    <div class="label">涨跌家数</div>
-                    <div class="value" style="color:var(--red);">3,865↑ / 1,504↓</div>
-                    <div class="detail">涨跌比约2.57:1 · 144家平盘</div>
-                </div>
-            </div>
-            <div class="quote-block">
-                <strong>📊 量价简析：</strong>前一日放量下挫（成交3.48万亿），今日缩量普涨修复。创业板、深成指涨幅领先，成长风格明显占优[reference:5]。两市共219只个股涨幅超9%，10只跌幅超9%[reference:6]。赚钱效应：<span style="color:var(--red);font-weight:700;">强修复（+65%以上）</span>。
-            </div>
-        </div>
-
-        <!-- ========== 三、情绪 ========== -->
-        <div class="card">
-            <h2><span class="icon">🧠</span> 三、情绪研判</h2>
-            <div class="score-display">
-                <div class="score-circle">7.5</div>
-                <div class="score-desc">
-                    <strong>短线情绪评分：7.5 / 10</strong><br>
-                    阶段定性：<span style="color:#e8a000;font-weight:700;">退潮确认期 → 修复期（混沌偏暖）</span><br>
-                    核心依据：5月21日放量暴跌是退潮确认信号，5月22日缩量强修复标志着情绪已从冰点拉回活跃区，但连板高度被压缩至3板，属<strong>混沌期修复</strong>而非主升[reference:7][reference:8]。
-                </div>
-            </div>
-            <table>
-                <thead>
-                    <tr><th>维度</th><th>数据</th><th>解读</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>涨停家数</td><td class="num">115家</td><td>较前一交易日大幅回升</td></tr>
-                    <tr><td>跌停家数</td><td class="num">约19家</td><td>较前一交易日69家大幅收敛</td></tr>
-                    <tr><td>封板率</td><td class="num" style="color:var(--green);">85%</td><td>封板质量优良</td></tr>
-                    <tr><td>连板晋级率</td><td class="num" style="color:var(--red);">66.67%</td><td>4只2板股全部晋级，强修复信号</td></tr>
-                    <tr><td>炸板家数</td><td class="num">21家</td><td>炸板率控制在15%，资金接板意愿强</td></tr>
-                </tbody>
-            </table>
-            <div class="quote-block">
-                <strong>🔑 关键情绪信号：</strong>达实智能从昨日"天地板"到今日快速反包走出6天5板——这是情绪从崩溃到强修复的<strong>核心标志</strong>[reference:9]。昨日断板的合百集团、川润股份同步反包涨停，反映资金通过"主动断板→反包"模式规避异动监管，变相加强容量抱团方向[reference:10]。连板高度虽压缩至3板（威龙股份7板断板跌停），但低位晋级率极高，市场畏高但不恐低[reference:11]。
-            </div>
-        </div>
-
-        <!-- ========== 四、连板 ========== -->
-        <div class="card">
-            <h2><span class="icon">🔗</span> 四、连板梯队</h2>
-            <table>
-                <thead>
-                    <tr><th>层级</th><th>个股</th><th>连板数</th><th>代表方向</th><th>核心信号</th></tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="tag gold">穿越核心</span></td>
-                        <td><span class="stock-name">宝鼎科技</span> <span class="stock-code">002552</span></td>
-                        <td>12天7板</td>
-                        <td>PCB</td>
-                        <td>PCB方向情绪风向标，穿越多轮情绪切换[reference:12]</td>
-                    </tr>
-                    <tr>
-                        <td><span class="tag gold">穿越核心</span></td>
-                        <td><span class="stock-name">交大昂立</span> <span class="stock-code">600530</span></td>
-                        <td>11天6板</td>
-                        <td>益生菌（独立逻辑）</td>
-                        <td>独立逻辑趋势穿越，非科技线抱团标的[reference:13]</td>
-                    </tr>
-                    <tr>
-                        <td><span class="tag red">情绪修复核心</span></td>
-                        <td><span class="stock-name">达实智能</span> <span class="stock-code">002421</span></td>
-                        <td>6天5板</td>
-                        <td>AI应用/机器人</td>
-                        <td>天地板→反包，情绪修复最关键信号[reference:14]</td>
-                    </tr>
-                    <tr>
-                        <td><span class="tag green">20cm高弹性</span></td>
-                        <td><span class="stock-name">金利华电</span> <span class="stock-code">300069</span></td>
-                        <td>20CM 3连板</td>
-                        <td>并购重组</td>
-                        <td>20cm方向情绪代表[reference:15]</td>
-                    </tr>
-                    <tr>
-                        <td><span class="tag">3板梯队</span></td>
-                        <td><span class="stock-name">龙星科技</span> <span class="stock-code">002442</span></td>
-                        <td>3连板</td>
-                        <td>化工</td>
-                        <td>3板梯队全线晋级，拓展连板空间[reference:16]</td>
-                    </tr>
-                    <tr>
-                        <td><span class="tag">3板梯队</span></td>
-                        <td><span class="stock-name">四环生物</span> <span class="stock-code">000518</span></td>
-                        <td>3连板</td>
-                        <td>医药</td>
-                        <td>3板梯队全线晋级</td>
-                    </tr>
-                    <tr>
-                        <td><span class="tag">3板梯队</span></td>
-                        <td><span class="stock-name">大众交通</span> <span class="stock-code">600611</span></td>
-                        <td>3连板</td>
-                        <td>智能驾驶</td>
-                        <td>智能驾驶方向情绪标杆[reference:17]</td>
-                    </tr>
-                    <tr>
-                        <td><span class="tag red">断板杀跌</span></td>
-                        <td><span class="stock-name">威龙股份</span> <span class="stock-code">603779</span></td>
-                        <td>7板→跌停</td>
-                        <td>食品饮料/独立逻辑</td>
-                        <td>最高标断板，打压连板高度信心[reference:18]</td>
-                    </tr>
-                    <tr>
-                        <td><span class="tag red">断板</span></td>
-                        <td><span class="stock-name">诚邦股份</span> <span class="stock-code">603316</span></td>
-                        <td>4板→收跌1.28%</td>
-                        <td>半导体/芯片</td>
-                        <td>盘中一度跌近9%，芯片方向前排遇阻</td>
-                    </tr>
-                    <tr>
-                        <td><span class="tag red">炸板</span></td>
-                        <td><span class="stock-name">利仁科技</span></td>
-                        <td>8板→跌停</td>
-                        <td>—</td>
-                        <td>前日尾盘炸板，今日继续跌停[reference:19]</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="quote-block">
-                <strong>📊 连板结构总结：</strong>连板高度压缩至3板（7板→4板→3板逐级压缩），但昨日4只2板股全部晋级（晋级率100%），叠加3只断板股反包涨停，形成"高度压制、广度扩散"的独特格局。连板股总数11只，封板资金质量尚可[reference:20]。反包策略盛行——资金通过主动断板→反包来规避异动监管，本质上是对连板接力信心的弱化，同时强化了趋势容量抱团方向[reference:21]。
-            </div>
-        </div>
-
-        <!-- ========== 五、结构 ========== -->
-        <div class="card">
-            <h2><span class="icon">🏗️</span> 五、结构分析</h2>
-            <h3>📐 高/中/低位结构分化</h3>
-            <table>
-                <thead>
-                    <tr><th>层级</th><th>表现</th><th>核心特征</th></tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="tag red">高位股（7板+）</span></td>
-                        <td>全面崩塌</td>
-                        <td>威龙股份（7板→跌停）、利仁科技（8板→跌停），高位接力风险集中释放，资金恐高情绪浓厚[reference:22]</td>
-                    </tr>
-                    <tr>
-                        <td><span class="tag gold">中位股（3-4板）</span></td>
-                        <td>分化加剧</td>
-                        <td>诚邦股份4板断板（盘中跌近9%），但四环生物、龙星科技、大众交通、金利华电4只3板股全部晋级成功[reference:23]</td>
-                    </tr>
-                    <tr>
-                        <td><span class="tag green">低位股（1-2板）</span></td>
-                        <td>全面扩散</td>
-                        <td>PCB板块超40股涨停或涨超10%，MLCC、超级电容、培育钻石等方向多点开花[reference:24]</td>
-                    </tr>
-                    <tr>
-                        <td><span class="tag">容量抱团</span></td>
-                        <td>持续加强</td>
-                        <td>京东方A分歧转一致晋级2连板，全天成交291.6亿创历史新高，对整个玻璃基板/面板产业链形成正面提振[reference:25]</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h3>📊 题材结构强弱</h3>
-            <div class="quote-block">
-                <strong>强结构（主线）：</strong>PCB/MLCC/超级电容（AI硬件链）&gt; 培育钻石/超硬材料 &gt; 机器人概念<br>
-                <strong>弱结构（回调）：</strong>白酒/食品饮料 &gt; 证券/非银金融 &gt; 石油石化 &gt; 旅游酒店<br>
-                <strong>分化特征：</strong>科技成长主线强势回归，消费+金融+周期逆势承压，资金从防御性板块向AI硬件方向大规模迁徙[reference:26]。申万行业：综合（+4.58%）、电子（+4.29%）、通信（+4.16%）领涨；食品饮料（-1.34%）、非银金融（-1.08%）领跌[reference:27]。
-            </div>
-        </div>
-
-        <!-- ========== 六、题材 ========== -->
-        <div class="card">
-            <h2><span class="icon">🎯</span> 六、三大主线题材</h2>
-
-            <!-- 主线一 -->
-            <h3>🔥 主线一：PCB（印制电路板）—— AI硬件最强主线</h3>
-            <div class="quote-block">
-                <strong>催化逻辑：</strong>摩根士丹利发布英伟达下一代Rubin机架BOM拆解报告，单机柜PCB价值量11.6万美金，较GB300翻3倍（+233%），MLCC增长182%、ABF基板增长82%[reference:28]。供需格局上，高端电子布核心设备全球交付周期长达一年以上，HVLP铜箔产能集中在少数厂商，预计2026-2027年供需缺口将持续存在[reference:29]。东吴证券预计全球AI服务器PCB市场规模从2024年30亿美元提升至2027年200亿美元以上[reference:30]。
-            </div>
-            <table>
-                <thead><tr><th>定位</th><th>个股</th><th>表现</th><th>逻辑</th></tr></thead>
-                <tbody>
-                    <tr><td>🏆 情绪龙头#1</td><td><span class="stock-name">宝鼎科技</span></td><td>12天7板</td><td>PCB方向穿越核心，多轮情绪切换下持续走强，板块情绪风向标[reference:31]</td></tr>
-                    <tr><td>🏆 情绪龙头#2</td><td><span class="stock-name">华正新材</span></td><td>3天2板</td><td>覆铜板细分先锋，连板延续性强</td></tr>
-                    <tr><td>🏆 情绪龙头#3</td><td><span class="stock-name">方邦股份</span></td><td>20CM涨停</td><td>电磁屏蔽膜龙头，20cm弹性代表</td></tr>
-                    <tr><td>💎 容量中军#1</td><td><span class="stock-name">沪电股份</span></td><td>涨停（+10%）</td><td>AI服务器PCB核心供应商，龙虎榜净买入14.63亿（机构+北向）[reference:32]</td></tr>
-                    <tr><td>💎 容量中军#2</td><td><span class="stock-name">深南电路</span></td><td>涨停（+10%）</td><td>高端PCB龙头，机构净买入5.27亿[reference:33]</td></tr>
-                    <tr><td>💎 容量中军#3</td><td><span class="stock-name">鹏鼎控股</span></td><td>涨停</td><td>全球PCB龙头，AI服务器+消费电子双轮驱动</td></tr>
-                </tbody>
-            </table>
-
-            <hr>
-
-            <!-- 主线二 -->
-            <h3>🔥 主线二：MLCC/超级电容 —— 被动元器件低位补涨</h3>
-            <div class="quote-block">
-                <strong>催化逻辑：</strong>英伟达VR200机架将使用约60万个MLCC，比现有GB300平台高出30%以上[reference:34]。叠加三星电机MLCC未来三年产能被预先抢占、中信证券研报看好MLCC进入新一轮涨价景气上行周期[reference:35]。MLCC/超级电容可视为PCB的"低位平替"方向，且上游材料业绩增长短期内难以证伪[reference:36]。
-            </div>
-            <table>
-                <thead><tr><th>定位</th><th>个股</th><th>表现</th><th>逻辑</th></tr></thead>
-                <tbody>
-                    <tr><td>🏆 情绪龙头#1</td><td><span class="stock-name">法拉电子</span></td><td>4天3板</td><td>薄膜电容龙头，趋势抱团方向代表</td></tr>
-                    <tr><td>🏆 情绪龙头#2</td><td><span class="stock-name">艾华集团</span></td><td>5天3板</td><td>铝电解电容龙头，超级电容方向先锋</td></tr>
-                    <tr><td>🏆 情绪龙头#3</td><td><span class="stock-name">风华高科</span></td><td>4天2板</td><td>国产MLCC龙头，韩国投资者净买入272万美元[reference:37]</td></tr>
-                    <tr><td>💎 容量中军#1</td><td><span class="stock-name">三环集团</span></td><td>涨超10%</td><td>陶瓷封装基座+MLCC双龙头，基本面最扎实</td></tr>
-                    <tr><td>💎 容量中军#2</td><td><span class="stock-name">博迁新材</span></td><td>4天2板</td><td>MLCC镍粉核心供应商，上游材料弹性最大</td></tr>
-                    <tr><td>💎 容量中军#3</td><td><span class="stock-name">昀冢科技</span></td><td>20CM涨停</td><td>MLCC精密结构件，20cm高弹性品种</td></tr>
-                </tbody>
-            </table>
-
-            <hr>
-
-            <!-- 主线三 -->
-            <h3>🔥 主线三：培育钻石/超硬材料 —— 算力散热新逻辑</h3>
-            <div class="quote-block">
-                <strong>催化逻辑：</strong>华福证券认为2026年有望成为金刚石铜规模化应用元年，金刚石材料作为算力芯片、数据中心的"终极散热材料"，产业化进程明显加快，2030年AI芯片领域金刚石散热市场规模有望达480-900亿元[reference:38]。叠加PCB上游超硬材料（钻针）需求激增逻辑，双轮驱动。
-            </div>
-            <table>
-                <thead><tr><th>定位</th><th>个股</th><th>表现</th><th>逻辑</th></tr></thead>
-                <tbody>
-                    <tr><td>🏆 情绪龙头#1</td><td><span class="stock-name">四方达</span></td><td>20CM涨停</td><td>超硬材料龙头，金刚石散热+PCB微钻双逻辑[reference:39]</td></tr>
-                    <tr><td>🏆 情绪龙头#2</td><td><span class="stock-name">黄河旋风</span></td><td>涨停</td><td>超硬材料老牌标的，低位补涨弹性大</td></tr>
-                    <tr><td>🏆 情绪龙头#3</td><td><span class="stock-name">鼎泰高科</span></td><td>20CM涨停</td><td>PCB微钻龙头，AI服务器用超长径微钻需求爆发</td></tr>
-                    <tr><td>💎 容量中军#1</td><td><span class="stock-name">中钨高新</span></td><td>涨停</td><td>PCB微钻扩产1.5亿支/年，龙虎榜净买入6.45亿[reference:40]</td></tr>
-                    <tr><td>💎 容量中军#2</td><td><span class="stock-name">恒盛能源</span></td><td>涨停</td><td>金刚石线+新能源双主线</td></tr>
-                    <tr><td>💎 容量中军#3</td><td><span class="stock-name">山东玻纤</span></td><td>涨停</td><td>电子级玻璃纤维，PCB上游核心材料</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- ========== 七、资金 ========== -->
-        <div class="card">
-            <h2><span class="icon">💰</span> 七、资金面（机构/游资龙虎榜）</h2>
-            <h3>📥 资金进攻方向</h3>
-            <table>
-                <thead><tr><th>排名</th><th>方向/个股</th><th>资金信号</th><th>逻辑</th></tr></thead>
-                <tbody>
-                    <tr>
-                        <td><span class="rank-badge rank-1">1</span></td>
-                        <td><span class="stock-name">PCB/AI硬件</span></td>
-                        <td>机构+北向+游资合力</td>
-                        <td>沪电股份龙虎榜净买入14.63亿（机构5.71亿）、深南电路机构净买入5.27亿、京东方A机构净买入5.92亿[reference:41][reference:42]。主力资金净流入电子板块176.85亿，全市场排名第一[reference:43]。</td>
-                    </tr>
-                    <tr>
-                        <td><span class="rank-badge rank-2">2</span></td>
-                        <td><span class="stock-name">玻璃基板/面板</span></td>
-                        <td>机构+顶级游资</td>
-                        <td>京东方A获两家机构买入9.66亿、深股通买入2.63亿、游资买入4.4亿，分歧转一致晋级2连板，全天成交291.6亿创历史新高[reference:44][reference:45]。</td>
-                    </tr>
-                    <tr>
-                        <td><span class="rank-badge rank-3">3</span></td>
-                        <td><span class="stock-name">AI应用/算力</span></td>
-                        <td>佛山系+机构合力</td>
-                        <td>达实智能获佛山系净买入2.39亿（买一），三家机构净买入5656万[reference:46]。昆仑万维净买入3.39亿（游资），20cm涨停[reference:47]。</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>📤 资金出逃方向</h3>
-            <table>
-                <thead><tr><th>排名</th><th>方向/个股</th><th>资金信号</th><th>逻辑</th></tr></thead>
-                <tbody>
-                    <tr>
-                        <td><span class="rank-badge rank-1">1</span></td>
-                        <td><span class="stock-name">白酒/食品饮料</span></td>
-                        <td>主力持续净流出</td>
-                        <td>威龙股份跌停、皇台酒业跌超9%，外资+机构同步减仓，板块整体跌1.34%[reference:48][reference:49]</td>
-                    </tr>
-                    <tr>
-                        <td><span class="rank-badge rank-2">2</span></td>
-                        <td><span class="stock-name">证券/非银金融</span></td>
-                        <td>游资+机构出逃</td>
-                        <td>中信建投、华泰证券等跌超2%，板块跌1.08%[reference:50][reference:51]</td>
-                    </tr>
-                    <tr>
-                        <td><span class="rank-badge rank-3">3</span></td>
-                        <td><span class="stock-name">石油石化</span></td>
-                        <td>逆势下挫</td>
-                        <td>仁智股份跌停，广汇能源跌超3%，受国际油价回落拖累[reference:52]</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>🤝 抱团与分歧</h3>
-            <table>
-                <thead><tr><th>类型</th><th>排名</th><th>个股/方向</th><th>详细逻辑</th></tr></thead>
-                <tbody>
-                    <tr>
-                        <td rowspan="3"><span class="tag green">抱团方向</span></td>
-                        <td>#1</td>
-                        <td><span class="stock-name">京东方A</span></td>
-                        <td>分歧转一致，机构+北向+游资三方合力，全天成交291.6亿创历史新高，体现大资金对玻璃基板方向的坚定看好[reference:53][reference:54]</td>
-                    </tr>
-                    <tr>
-                        <td>#2</td>
-                        <td><span class="stock-name">PCB板块（沪电/深南）</span></td>
-                        <td>4家机构联手深股通买入沪电股份，机构+外资+游资三方共振，龙头抱团效应明显[reference:55]</td>
-                    </tr>
-                    <tr>
-                        <td>#3</td>
-                        <td><span class="stock-name">达实智能</span></td>
-                        <td>"天地板→反包"形态吸引佛山系+三家机构合力买入，体现市场对反包模式的高度认可[reference:56]</td>
-                    </tr>
-                    <tr>
-                        <td rowspan="3"><span class="tag red">分歧方向</span></td>
-                        <td>#1</td>
-                        <td><span class="stock-name">威龙股份</span></td>
-                        <td>游资净买入2.07亿"接飞刀"，但股价跌停，游资内部对高位股分歧严重[reference:57]</td>
-                    </tr>
-                    <tr>
-                        <td>#2</td>
-                        <td><span class="stock-name">长电科技</span></td>
-                        <td>机构净买入9.05亿但游资净卖出7.67亿，机构与游资方向背离[reference:58][reference:59]</td>
-                    </tr>
-                    <tr>
-                        <td>#3</td>
-                        <td><span class="stock-name">理奇智能</span></td>
-                        <td>机构净卖出1.83亿，龙虎榜净流出1.76亿居首，多空分歧最大标的[reference:60]</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- ========== 八、异动 ========== -->
-        <div class="card">
-            <h2><span class="icon">⚠️</span> 八、异动与监管个股</h2>
-            <table>
-                <thead><tr><th>个股</th><th>异动类型</th><th>时间窗口</th><th>详细逻辑 &amp; 再次启动可能</th></tr></thead>
-                <tbody>
-                    <tr>
-                        <td><span class="stock-name">大普微</span> <span class="stock-code">301666</span></td>
-                        <td><span class="tag red">停牌核查完成 → 复牌</span></td>
-                        <td>5月19日起停牌，5月22日复牌</td>
-                        <td>5月14-18日连续三日涨幅偏离值累计超30%，停牌核查。公司公告"基本面未发生重大变化，股价偏离基本面"[reference:61]。<strong>再次启动概率：中等偏低。</strong>复牌首日情绪修复但股价未现强势，前期半导体高位股降温信号明显，但若AI硬件方向持续走强，不排除资金回流[reference:62]。</td>
-                    </tr>
-                    <tr>
-                        <td><span class="stock-name">红板科技</span> <span class="stock-code">603459</span></td>
-                        <td><span class="tag gold">连续三日异动（涨幅偏离值累计&gt;20%）</span></td>
-                        <td>5月20日-5月22日</td>
-                        <td>公司已发异常波动公告，经营正常。作为PCB板块核心标的，处于强主线风口[reference:63]。<strong>再次启动概率：高。</strong>板块情绪高涨，但需注意若下周分歧加大可能触发停牌。</td>
-                    </tr>
-                    <tr>
-                        <td><span class="stock-name">宝鼎科技</span> <span class="stock-code">002552</span></td>
-                        <td><span class="tag gold">12天7板 高位震荡</span></td>
-                        <td>近12个交易日</td>
-                        <td>PCB方向穿越核心，累计涨幅巨大。虽暂未触及停牌标准，但已处于监管"关注区"边缘。<strong>再次启动概率：中等。</strong>作为板块风向标，不大可能A杀，但再连板概率降低，更可能转入高位震荡或趋势上行。</td>
-                    </tr>
-                    <tr>
-                        <td><span class="stock-name">威龙股份</span> <span class="stock-code">603779</span></td>
-                        <td><span class="tag red">7连板→跌停</span></td>
-                        <td>近7个交易日</td>
-                        <td>前日最高标（7连板），今日跌停。虽未触发异动停牌，但断板跌停方式出清，游资仍净买入2.07亿"接飞刀"[reference:64]。<strong>再次启动概率：低。</strong>高标断板后通常需要较长时间消化，短期难以再度组织进攻。</td>
-                    </tr>
-                    <tr>
-                        <td><span class="stock-name">*ST双成</span> <span class="stock-code">002693</span></td>
-                        <td><span class="tag">摘帽复牌</span></td>
-                        <td>5月22日停牌1天，5月25日复牌</td>
-                        <td>撤销退市风险警示，简称变更为"双成药业"，涨跌幅限制恢复至10%[reference:65]。<strong>再次启动概率：中等偏高。</strong>摘帽是独立事件驱动，但医药板块当前非市场主线。</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- ========== 九、明日预判 ========== -->
-        <div class="card">
-            <h2><span class="icon">🔮</span> 九、明日（下周一5月25日）预判</h2>
-            <table>
-                <thead><tr><th>维度</th><th>预判</th><th>详细逻辑</th></tr></thead>
-                <tbody>
-                    <tr>
-                        <td><strong>强弱预判</strong></td>
-                        <td><span class="tag gold">偏强震荡（混沌→试探性进攻）</span></td>
-                        <td>缩量修复后市场情绪回到活跃区，但连板高度压缩至3板、成交额萎缩至2.9万亿，周一大概率延续震荡。沪指上方20日均线仍有反压，创业板指、科创50已收复5日均线，结构性分化持续[reference:66]。重点关注PCB板块是否出现分歧——若板块横向扩散过度后出现大级别分歧，可能拖累指数[reference:67]。</td>
-                    </tr>
-                    <tr>
-                        <td><strong>仓位建议</strong></td>
-                        <td>5-7成（中等偏积极）</td>
-                        <td>情绪从退潮转入修复期，属于混沌转启动阶段的试错窗口。建议以趋势容量标的为主（PCB/MLCC中军），连板方向谨慎试仓（3板梯队晋级情况是关键观察点）。高位股（7板+）坚决回避。</td>
-                    </tr>
-                    <tr>
-                        <td><strong>可关注方向</strong></td>
-                        <td>
-                            <span class="tag green">PCB/AI硬件（核心）</span>
-                            <span class="tag green">MLCC/被动元器件</span>
-                            <span class="tag green">培育钻石/超硬材料</span>
-                            <span class="tag">玻璃基板（京东方A产业链）</span>
-                        </td>
-                        <td>①PCB方向：若沪电股份/深南电路/宝鼎科技维持强势，板块有望继续扩散，关注上游铜箔/电子布低位补涨。②MLCC：作为PCB的"低位平替"，板块今日横向扩散过快，周一大概率出现分化，去弱留强。③培育钻石：算力散热新逻辑尚未充分定价，可关注分歧低吸。④玻璃基板：京东方A若继续放量走高，产业链将形成正向反馈。</td>
-                    </tr>
-                    <tr>
-                        <td><strong>避坑板块</strong></td>
-                        <td>
-                            <span class="tag red">白酒/食品饮料</span>
-                            <span class="tag red">证券/非银金融</span>
-                            <span class="tag red">石油石化</span>
-                            <span class="tag red">高位连板股（5板+）</span>
-                        </td>
-                        <td>消费+金融板块短期资金持续流出，缺乏催化剂，与科技主线形成跷跷板效应；石油石化受国际油价回落拖累；高位连板股在威龙股份跌停示范下，接力风险极高[reference:68]。</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="risk-box">
-                <h4>⚠️ 风险提示</h4>
-                <ul>
-                    <li><strong>量能风险：</strong>今日缩量5783亿（-16.6%），若下周一继续缩量，修复行情可能夭折，需警惕"缩量反弹→放量回落"的节奏。</li>
-                    <li><strong>高位分歧风险：</strong>PCB/MLCC板块今日"横向扩散过快并无差别加强后，下周仍有一次大级别分歧出现"[reference:69]，去弱留强是关键。</li>
-                    <li><strong>连板高度压制：</strong>连板高度降至3板为近期低点，若3板股下周晋级失败，短线情绪可能再度退潮。</li>
-                    <li><strong>海外不确定性：</strong>美股英伟达财报后股价下跌1.77%[reference:70]，需关注海外AI龙头走势对A股映射的影响。</li>
-                    <li><strong>监管风险：</strong>宝鼎科技（12天7板）、红板科技（连续三日异动）等个股已处于监管敏感区，需警惕突发停牌核查风险。</li>
-                    <li><strong>半导体高位调整风险：</strong>财信证券提示，半导体板块连续上涨后已处相对高位，一旦买盘不足，容易引发卖盘集中出清[reference:71]。</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- 页脚 -->
-        <div class="footer-note">
-            <p>📌 <strong>免责声明：</strong>本复盘基于公开市场数据整理，仅供短线趋势交易者参考学习，不构成任何投资建议。市场有风险，投资需谨慎。数据来源：Wind、东方财富、财联社、大智慧VIP、21世纪经济报道等。</p>
-            <p>生成时间：2026年5月24日（周日）· 复盘日期：2026年5月22日（周五）</p>
-        </div>
-
+<!-- Header -->
+<div class="header">
+  <div class="h-left">
+    <div class="logo">📊</div>
+    <div class="title">
+      <h1>A股主线题材全景仪表盘</h1>
+      <p>数据区间：2026.07.23 — 2026.07.28 · 收盘数据 · 东方财富/Choice/证券时报综合整理</p>
     </div>
+  </div>
+  <div class="h-right">
+    <span class="badge b-blue"><span class="dot"></span>实时更新</span>
+    <span class="badge b-green">数据真实</span>
+  </div>
+</div>
+
+<!-- KPI Row -->
+<div class="grid g-4" style="margin-bottom:16px">
+  <div class="card">
+    <div class="kpi">
+      <span class="l">上证综指（07.28收盘）</span>
+      <span class="v down">3813.52</span>
+      <span class="s down">-1.16% · 避险情绪主导</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="kpi">
+      <span class="l">创业板指（07.28收盘）</span>
+      <span class="v down">3326.85</span>
+      <span class="s down">-7.35% · 科技硬件崩盘</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="kpi">
+      <span class="l">两市成交额（07.28）</span>
+      <span class="v">2.03万亿</span>
+      <span class="s">高位科技兑现 → 防御承接</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="kpi">
+      <span class="l">主力资金净流出（07.28）</span>
+      <span class="v down">约1086亿</span>
+      <span class="s down">电子/通信占流出超70%</span>
+    </div>
+  </div>
+</div>
+
+<!-- Section 1: 三大主线题材 -->
+<div class="card" style="margin-bottom:16px">
+  <h2><span class="ic">🎯</span> 近5天三大主线题材 <span class="tag-s">07.23 - 07.28</span></h2>
+  <div class="grid g-3">
+
+    <!-- 主线1 -->
+    <div class="card theme" style="margin:0">
+      <span class="rank">1</span>
+      <h3>🏦 银行/高股息防御</h3>
+      <span class="stage s-defense">阶段：防御抱团 · 加速期</span>
+      <p style="font-size:12.5px;color:var(--text-sec);margin-bottom:8px">
+        科技硬件崩盘后避险资金首选，板块平均静态股息率约4.45%、PB仅0.58倍，二季度息差与中收预期稳，护盘属性极强。
+      </p>
+      <div class="flow">
+        <div class="f in"><div class="n">主力净流入（07.28）</div><div class="m">+15.27亿</div></div>
+        <div class="f"><div class="n">板块涨幅（07.28）</div><div class="m">+1.50%</div></div>
+      </div>
+      <strong style="font-size:12px;color:var(--text)">📰 催化消息：</strong>
+      <p style="font-size:12px;color:var(--text-sec);margin:4px 0 6px">
+        ① 高位科技（半导体/CPO）集体崩盘，资金极端切向低估值防御<br>
+        ② 国有大行中报业绩预期稳健，息差收窄幅度好于市场预期<br>
+        ③ 沪深300成分主力净流入420.31亿，权重红利成为托底力量
+      </p>
+      <div class="bull-bear">
+        <div class="bb bull">
+          <h4>📈 唱多逻辑</h4>
+          高股息+低PB安全边际厚；中报业绩确定性强；避险情绪升温下资金持续流入；护盘品种政策友好
+        </div>
+        <div class="bb bear">
+          <h4>📉 唱空逻辑</h4>
+          净息差长期收窄压力仍存；经济复苏不及预期可能影响资产质量；防御性品种弹性有限，非进攻主线
+        </div>
+      </div>
+    </div>
+
+    <!-- 主线2 -->
+    <div class="card theme t2" style="margin:0">
+      <span class="rank">2</span>
+      <h3>🧠 脑机接口/创新药</h3>
+      <span class="stage s-active">阶段：题材催化 · 启动加速期</span>
+      <p style="font-size:12.5px;color:var(--text-sec);margin-bottom:8px">
+        连续两日逆势大涨，板块超45股收红。海外视网膜芯片欧盟落地+国内脑电采集技术突破+政策赋能，两日累计主力净流入超20亿。
+      </p>
+      <div class="flow">
+        <div class="f in"><div class="n">主力净流入（2日累计）</div><div class="m">+20.6亿</div></div>
+        <div class="f"><div class="n">龙头涨幅（07.28）</div><div class="m">+9.98%</div></div>
+      </div>
+      <strong style="font-size:12px;color:var(--text)">📰 催化消息：</strong>
+      <p style="font-size:12px;color:var(--text-sec);margin:4px 0 6px">
+        ① 海外视网膜芯片获欧盟CE认证落地，产业化进程加速<br>
+        ② 国内脑电采集设备获NMPA审批突破，临床端开启放量<br>
+        ③ 半年报业绩窗口期，创新药/CRO超跌反弹叠加低位估值修复
+      </p>
+      <div class="bull-bear">
+        <div class="bb bull">
+          <h4>📈 唱多逻辑</h4>
+          产业催化密集（海内外双重落地）；低位超跌+估值修复空间大；政策端数字医疗/脑科学规划加持；资金逆势流入强度高
+        </div>
+        <div class="bb bear">
+          <h4>📉 唱空逻辑</h4>
+          题材股居多，业绩兑现尚需时间；短期连续上涨后存在获利回吐压力；板块容量偏小，大资金容纳度有限
+        </div>
+      </div>
+    </div>
+
+    <!-- 主线3 -->
+    <div class="card theme t3" style="margin:0">
+      <span class="rank">3</span>
+      <h3>🍶 白酒/食品饮料</h3>
+      <span class="stage s-defense">阶段：防御轮动 · 修复期</span>
+      <p style="font-size:12.5px;color:var(--text-sec);margin-bottom:8px">
+        中报业绩确定性+消费防御轮动，资金从高位成长撤出后做低位切换。休闲食品+3.75%、白酒+2.36%、饮料乳品+2.27%。
+      </p>
+      <div class="flow">
+        <div class="f in"><div class="n">主力净流入（07.28）</div><div class="m">+6.84亿</div></div>
+        <div class="f"><div class="n">板块涨幅（07.28）</div><div class="m">+2.20%</div></div>
+      </div>
+      <strong style="font-size:12px;color:var(--text)">📰 催化消息：</strong>
+      <p style="font-size:12px;color:var(--text-sec);margin:4px 0 6px">
+        ① 白酒龙头中报业绩预期稳健，龙头确定性溢价凸显<br>
+        ② 暑期消费数据环比改善，食品饮料动销恢复超预期<br>
+        ③ 科技崩盘后资金风格切换，消费白马成为避险资金优选
+      </p>
+      <div class="bull-bear">
+        <div class="bb bull">
+          <h4>📈 唱多逻辑</h4>
+          中报业绩确定性强；估值处于历史相对低位；避险情绪升温下资金持续流入；消费复苏政策预期
+        </div>
+        <div class="bb bear">
+          <h4>📉 唱空逻辑</h4>
+          消费复苏斜率偏缓，需求端尚未全面回暖；白酒渠道库存仍偏高；人口结构变化影响长期消费潜力
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Section 2: 个股全景表 -->
+<div class="card" style="margin-bottom:16px">
+  <h2><span class="ic">📋</span> 个股多空分析全景表 <span class="tag-s">16只标的</span></h2>
+  <div style="overflow-x:auto">
+  <table>
+    <thead>
+      <tr>
+        <th>个股名称</th>
+        <th>主线题材</th>
+        <th>龙头定位</th>
+        <th>唱多逻辑</th>
+        <th>唱空逻辑</th>
+        <th>尾盘阴线买入法</th>
+        <th>强弱评分</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>农业银行</strong><br><span style="color:var(--text-sec);font-size:11px">601288</span></td>
+        <td>银行/高股息防御</td>
+        <td><span class="pos p-l">容量核心</span></td>
+        <td>大行龙头，股息率4.5%+；PB 0.58倍安全边际厚；07.28主力净流入6.58亿居首；中报业绩稳健</td>
+        <td>净息差长期承压；经济弱复苏下资产质量存隐忧；弹性有限非进攻品种</td>
+        <td>✅ 适用。防御性品种回调即是买点，阴线分批布局胜率高</td>
+        <td><span class="stars">★★★★★</span></td>
+      </tr>
+      <tr>
+        <td><strong>岩山科技</strong><br><span style="color:var(--text-sec);font-size:11px">002195</span></td>
+        <td>脑机接口/AI大模型</td>
+        <td><span class="pos p-m">趋势中军</span></td>
+        <td>脑机接口+AI语料双主线龙头；07.28涨停+主力净流入5.23亿；AI PC+人形机器人多模态布局</td>
+        <td>题材股业绩兑现尚需时间；短期涨幅大获利盘丰厚；板块容量有限</td>
+        <td>✅ 适用。题材龙头分歧阴线是优质买点，但需严格止损</td>
+        <td><span class="stars">★★★★☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>山西汾酒</strong><br><span style="color:var(--text-sec);font-size:11px">600809</span></td>
+        <td>白酒/食品饮料</td>
+        <td><span class="pos p-m">趋势中军</span></td>
+        <td>次高端白酒龙头；中报业绩确定性强；07.28涨2.59%+主力净流入1.22亿；估值回落至合理区间</td>
+        <td>白酒行业整体库存偏高；次高端价格带竞争加剧；消费复苏偏缓</td>
+        <td>✅ 适用。消费白马阴线分批建仓，长期持有胜率高</td>
+        <td><span class="stars">★★★★☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>小商品城</strong><br><span style="color:var(--text-sec);font-size:11px">600415</span></td>
+        <td>跨境支付/CIPS</td>
+        <td><span class="pos p-c">题材龙头</span></td>
+        <td>人民币国际化核心受益标的；07.28涨6.58%+主力净流入2.22亿；义乌小商品城海外仓布局加速</td>
+        <td>跨境支付政策落地节奏不确定；外贸出口仍承压；短期涨幅偏大</td>
+        <td>⚠️ 谨慎。题材持续性待验证，阴线需观察承接力度</td>
+        <td><span class="stars">★★★☆☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>东鹏饮料</strong><br><span style="color:var(--text-sec);font-size:11px">605499</span></td>
+        <td>食品饮料</td>
+        <td><span class="pos p-c">细分龙头</span></td>
+        <td>能量饮料龙头，全国化扩张加速；07.28涨5.28%+主力净流入0.91亿；中报业绩预期向好</td>
+        <td>能量饮料赛道竞争加剧（红牛/乐虎）；单一品类依赖度高；估值不便宜</td>
+        <td>✅ 适用。细分龙头阴线低吸，业绩确定性提供安全垫</td>
+        <td><span class="stars">★★★☆☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>分众传媒</strong><br><span style="color:var(--text-sec);font-size:11px">002027</span></td>
+        <td>传媒/广告营销</td>
+        <td><span class="pos p-m">趋势中军</span></td>
+        <td>楼宇广告绝对龙头；07.28涨3.88%+主力净流入0.72亿；消费复苏带动广告预算回暖</td>
+        <td>宏观经济弱复苏下广告主预算谨慎；互联网广告分流压力；业绩弹性有限</td>
+        <td>⚠️ 中性。经济周期敏感，阴线需结合宏观数据判断</td>
+        <td><span class="stars">★★★☆☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>川能动力</strong><br><span style="color:var(--text-sec);font-size:11px">000155</span></td>
+        <td>新能源/电力</td>
+        <td><span class="pos p-c">题材标的</span></td>
+        <td>锂电+风光发电双主线；07.28涨4.98%；中报预增135.29%，业绩弹性大；锂价企稳预期</td>
+        <td>锂价长期下行压力仍存；新能源板块整体估值偏高；电力市场化改革影响盈利</td>
+        <td>⚠️ 谨慎。周期品属性强，业绩高增长可持续性存疑</td>
+        <td><span class="stars">★★★☆☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>藏格矿业</strong><br><span style="color:var(--text-sec);font-size:11px">000408</span></td>
+        <td>盐湖提锂/钾肥</td>
+        <td><span class="pos p-c">资源龙头</span></td>
+        <td>盐湖提锂+钾肥双主业；中报预增108.31%；察尔汗盐湖资源储量大；锂价反弹受益</td>
+        <td>锂价波动大影响业绩；钾肥国际价格承压；07.28微跌0.4%资金态度谨慎</td>
+        <td>❌ 不适用。周期品波动性大，阴线可能延续下跌趋势</td>
+        <td><span class="stars">★★★☆☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>西部矿业</strong><br><span style="color:var(--text-sec);font-size:11px">601168</span></td>
+        <td>有色金属/顺周期</td>
+        <td><span class="pos p-c">资源龙头</span></td>
+        <td>铜铅锌多金属龙头；中报预增130%；07.23-24有色金属板块周涨5.31%；顺周期避险属性</td>
+        <td>07.28跌2.28%主力净流出1.08亿；全球经济衰退预期压制工业金属需求；铜价波动大</td>
+        <td>❌ 不适用。强周期品种，下跌趋势中阴线不宜抄底</td>
+        <td><span class="stars">★★☆☆☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>华电辽能</strong><br><span style="color:var(--text-sec);font-size:11px">600396</span></td>
+        <td>电力/新能源</td>
+        <td><span class="pos p-c">题材标的</span></td>
+        <td>火电+新能源双轮驱动；4天3板短线强势；07.28涨5.74%+主力净流入2.01亿；迎峰度夏用电高峰催化</td>
+        <td>火电盈利受煤价波动影响；短期涨幅过大（换手率23.53%）；连续上涨后获利回吐压力大</td>
+        <td>❌ 不适用。短线妖股属性，换手率过高风险大</td>
+        <td><span class="stars">★★☆☆☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>三博脑科</strong><br><span style="color:var(--text-sec);font-size:11px">301293</span></td>
+        <td>医药/脑科医疗</td>
+        <td><span class="pos p-c">细分龙头</span></td>
+        <td>脑科专科医院龙头，脑机接口医疗端受益；07.28涨4.01%；创新药+医疗服务双逻辑</td>
+        <td>换手率15.64%过高；主力净流出0.36亿；民营医院政策风险；业绩兑现期长</td>
+        <td>⚠️ 谨慎。次新股波动大，需观察资金承接</td>
+        <td><span class="stars">★★☆☆☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>亚钾国际</strong><br><span style="color:var(--text-sec);font-size:11px">000893</span></td>
+        <td>钾肥/农业</td>
+        <td><span class="pos p-c">资源龙头</span></td>
+        <td>东南亚钾肥龙头，中报预增75.46%；07.28涨5.47%+主力净流入0.8亿；钾肥价格企稳预期</td>
+        <td>国际钾肥价格仍处下行周期；农产品价格低迷影响化肥需求；海外项目运营风险</td>
+        <td>⚠️ 谨慎。周期品属性，需结合钾肥价格判断</td>
+        <td><span class="stars">★★☆☆☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>春风动力</strong><br><span style="color:var(--text-sec);font-size:11px">603129</span></td>
+        <td>汽车/摩托车</td>
+        <td><span class="pos p-c">细分龙头</span></td>
+        <td>中大排摩托车+全地形车龙头；出口海外市场表现亮眼；07.28涨1.88%；产品结构升级</td>
+        <td>消费降级下可选消费承压；摩托车行业增速放缓；汇率波动影响出口利润</td>
+        <td>⚠️ 中性。可选消费品，受消费力影响大</td>
+        <td><span class="stars">★★☆☆☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>东方新能</strong><br><span style="color:var(--text-sec);font-size:11px">002310</span></td>
+        <td>新能源</td>
+        <td><span class="pos p-c">题材标的</span></td>
+        <td>低价股（2.65元）；07.28涨停9.96%；中报预增357.82%；绿色电力+园林生态双主业</td>
+        <td>基本面一般，业绩高增长基数低；换手率9.31%偏高；低价股炒作属性强</td>
+        <td>❌ 不适用。纯题材炒作，风险极高</td>
+        <td><span class="stars">★★☆☆☆</span></td>
+      </tr>
+      <tr>
+        <td><strong>华通线缆</strong><br><span style="color:var(--text-sec);font-size:11px">605196</span></td>
+        <td>电力设备/线缆</td>
+        <td><span class="pos p-c">细分标的</span></td>
+        <td>线缆龙头，受益于电网投资加速；07.28涨2.41%</td>
+        <td>换手率6.79%偏高；主力净流出0.22亿；行业竞争激烈毛利率偏低；铜价波动影响成本</td>
+        <td>❌ 不适用。缺乏明确主线逻辑，资金关注度低</td>
+        <td><span class="stars">★☆☆☆☆</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- Section 3: 最强前3名 -->
+<div class="card" style="margin-bottom:16px">
+  <h2><span class="ic">🏆</span> 最强前3名（趋势中军 & 容量核心） <span class="tag-s">不看量能换手</span></h2>
+  <div class="top3">
+
+    <div class="top-item">
+      <div class="no no-1">1</div>
+      <div>
+        <h4>农业银行 <span style="color:var(--red);font-size:13px">+3.57%</span></h4>
+        <div class="code">601288 · 银行/高股息防御 · 流通市值 2.22万亿</div>
+        <div class="meta">
+          <span class="m-chip">容量核心</span>
+          <span class="m-chip">高股息率 4.5%+</span>
+          <span class="m-chip">PB 0.58x</span>
+          <span class="m-chip">主力净流入 +6.58亿</span>
+        </div>
+        <p>
+          <strong>买入逻辑：</strong>① 国有大行绝对龙头，资产质量稳健，中报业绩确定性强；② 科技崩盘后避险情绪急速升温，高股息低PB品种成为资金首选；③ 07.28单日主力净流入6.58亿居A股前列，机构与北向资金同步加仓；④ 板块平均股息率4.45%，远高于10年期国债收益率，"类债"配置价值凸显；⑤ 沪深300成分主力单日净流入420亿，权重红利成为市场托底核心力量。
+        </p>
+        <p class="sig">
+          证伪信号：① 中报业绩不及预期（净利润增速低于3%）；② 净息差超预期收窄（单季收窄超5BP）；③ 房地产风险传导导致不良率大幅上升；④ 股息率被市场重新定价（板块PB大幅上涨）。
+        </p>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:11px;color:var(--text-sec)">题材阶段</div>
+        <div style="font-size:13px;font-weight:700;color:var(--green);margin-top:4px">防御抱团期</div>
+        <div style="font-size:11px;color:var(--text-sec);margin-top:4px">资金持续流入</div>
+      </div>
+    </div>
+
+    <div class="top-item">
+      <div class="no no-2">2</div>
+      <div>
+        <h4>岩山科技 <span style="color:var(--red);font-size:13px">+9.98%</span></h4>
+        <div class="code">002195 · 脑机接口/AI大模型 · 流通市值 383.56亿</div>
+        <div class="meta">
+          <span class="m-chip">趋势中军</span>
+          <span class="m-chip">脑机接口龙头</span>
+          <span class="m-chip">AI多模态</span>
+          <span class="m-chip">主力净流入 +5.23亿</span>
+        </div>
+        <p>
+          <strong>买入逻辑：</strong>① 脑机接口+AI语料+AI PC+人形机器人多主线共振，07.27-28连续两日逆势涨停，是科技内部"高低切"的核心受益标的；② 海外视网膜芯片获欧盟CE认证、国内脑电采集设备获批，产业催化密集落地；③ 两日累计主力净流入超5.23亿，特大单净流入6.02亿，机构+游资合力做多；④ 板块两日净流入超20亿，是除防御板块外少数能持续吸引资金的进攻性方向；⑤ 前期科技硬件（半导体/CPO）崩盘后，脑机接口作为新题材具有比价优势。
+        </p>
+        <p class="sig">
+          证伪信号：① 脑机接口产业催化不及预期（无后续政策/产品落地）；② 连续3日换手率超20%且主力资金转为净流出；③ 海外科技股反弹导致资金回流高位硬件赛道；④ 公司公告澄清无相关业务或业务占比极低。
+        </p>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:11px;color:var(--text-sec)">题材阶段</div>
+        <div style="font-size:13px;font-weight:700;color:var(--green);margin-top:4px">启动加速期</div>
+        <div style="font-size:11px;color:var(--text-sec);margin-top:4px">催化密集落地</div>
+      </div>
+    </div>
+
+    <div class="top-item">
+      <div class="no no-3">3</div>
+      <div>
+        <h4>山西汾酒 <span style="color:var(--red);font-size:13px">+2.59%</span></h4>
+        <div class="code">600809 · 白酒/食品饮料 · 流通市值 1540.2亿</div>
+        <div class="meta">
+          <span class="m-chip">趋势中军</span>
+          <span class="m-chip">次高端白酒龙头</span>
+          <span class="m-chip">中报确定性</span>
+          <span class="m-chip">主力净流入 +1.22亿</span>
+        </div>
+        <p>
+          <strong>买入逻辑：</strong>① 次高端白酒龙头，品牌力+渠道力兼具，全国化扩张仍有空间；② 中报业绩确定性强，白酒板块整体中报预期稳健，龙头确定性溢价凸显；③ 07.28食品饮料板块主力净流入6.84亿，白酒+2.36%领涨，贵州茅台单日净流入5.09亿；④ 消费复苏政策预期升温，暑期消费数据环比改善，动销恢复好于预期；⑤ 估值已回落至历史合理区间，高估值风险得到消化，避险资金+配置资金双重流入。
+        </p>
+        <p class="sig">
+          证伪信号：① 中报业绩低于市场预期（收入增速低于10%或利润增速低于15%）；② 渠道库存大幅上升（环比增加超5%）；③ 高端白酒批价大幅下跌（飞天茅台批价跌破2200元）；④ 宏观经济大幅下行导致消费力进一步削弱。
+        </p>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:11px;color:var(--text-sec)">题材阶段</div>
+        <div style="font-size:13px;font-weight:700;color:#d97706;margin-top:4px">防御修复期</div>
+        <div style="font-size:11px;color:var(--text-sec);margin-top:4px">中报窗口期</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="foot">
+  <p>📌 <strong>免责声明：</strong>本仪表盘基于公开市场数据整理，仅供研究参考，不构成任何投资建议。市场有风险，投资需谨慎。</p>
+  <p style="margin-top:4px">数据来源：东方财富、Choice、证券时报、第一财经、山西证券研报、粤开证券日报 · 数据日期：2026年7月28日</p>
+</div>
+
+</div>
 </body>
 </html>
